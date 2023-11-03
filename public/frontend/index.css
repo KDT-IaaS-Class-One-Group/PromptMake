@@ -1,7 +1,26 @@
-
 #root {
   margin:0px;
   padding:0px;
   box-sizing: border-box;
-  background-color: red
+  background-color: gray;
+  width: 100vw;
+  height: 100vh;
+}
+#leftbox {
+  width: 800px;
+  display: flex;
+}
+#rightbox {
+  width: 630px;
+}
+#categorybox {
+  width: 500px;
+  height: 80px;
+  border-style: none;
+}
+#promptbox {
+  width: 500px;
+  height: 80px;
+  border-radius: 10px;
+  border-style: none;
 }
