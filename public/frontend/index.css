@@ -7,20 +7,33 @@
   height: 100vh;
 }
 #leftbox {
-  width: 800px;
+  width: 70vw;
   display: flex;
-}
-#rightbox {
-  width: 630px;
+  flex-direction: column;
+  align-items:flex-end;
 }
 #categorybox {
   width: 500px;
   height: 80px;
   border-style: none;
 }
-#promptbox {
+#prompt {
   width: 500px;
   height: 80px;
   border-radius: 10px;
   border-style: none;
+}
+form {
+  display: flex;
+  width: 500px;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+}
+#clickbutton {
+  width: 50px;
+  height: 50px;
+}
+#nobox {
+  height: 700px;
 }
