@@ -1,7 +1,9 @@
 const express = require('express');
+const app = express();
+const router1 = require("./routes.js")
 
-const app = express()
+app.use('/', router1)
 
 app.listen(3000, function() {
-  console.log("start! express server on port 3000")
+  console.log("http://localhost:3000/")
 })
