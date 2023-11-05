@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const fs = require('fs')
 const bodyParser = require('body-parser')
+// NPM 모듈 설정
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.use(express.static('public'));
