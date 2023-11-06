@@ -6,6 +6,7 @@ const path = require('path');
 
 app.use(express.json());
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 
 // HTML 폼을 표시할 라우트
 app.get('/', (req, res) => {
@@ -16,6 +17,7 @@ app.get('/', (req, res) => {
 // POST 요청 처리
 app.post('/postData', (req, res) => {
   const newData = req.body.data;
+  console.log(req.body)
   const inputdataPath = path.join(__dirname, 'data', 'inputdata.json');
 
   // 기존 데이터 불러오기
@@ -40,7 +42,7 @@ app.post('/postData', (req, res) => {
       inputDataArray.push(newData);
 
       // 데이터를 JSON 파일로 저장
-      fs.writeFileSync(inputdataPath, JSON.stringify(inputDataArray, null, 2), 'utf-8', (writeErr) => {
+      fs.writeFile(inputdataPath, JSON.stringify(inputDataArray, null, 2), 'utf-8', (writeErr) => {
         if (writeErr) {
           // 파일 쓰기 오류 처리
           console.error('파일 쓰기 오류:', writeErr);
