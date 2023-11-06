@@ -1,23 +1,9 @@
 const express = require('express');
 const app = express();
-const fs = require('fs')
-const bodyParser = require('body-parser')
-// NPM 모듈 설정
-app.use(bodyParser.urlencoded({extended: true}))
+const port = 3000;
 
-app.use(express.static('public'));
-app.use(express.static('data'));
+app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send()
-})
-app.post('/add', (req, res) => {
-  const test = req.body
-  fs.writeFile(__dirname, test)
-  res.send(test)
-})
-
-
-app.listen(3000, () => {
-  console.log("http://localhost:3000/")
-})
+app.listen(port, () => {
+  console.log(`서버가 http://localhost:${port}에서 실행 중입니다.`);
+});

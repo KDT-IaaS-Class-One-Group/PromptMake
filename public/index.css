@@ -6,13 +6,13 @@
   width: 100vw;
   height: 100vh;
   display: flex;
+  overflow: hidden;
 }
 #LeftBox {
-  height: 100vh;
   width: 70vw;
+  height: 100vh;
 }
 #RightBox {
-  height: 100vh;
   width: 30vw;
 }
 
@@ -30,11 +30,24 @@
 #CategoryBox {
   background-color: aliceblue;
   width: 500px;
-  height: 100px;
+  height: 10vh;
 }
 #PromptBox {
-  background-color: azure;
-  margin-top: 10px;
+  background-color: gray;
   width: 500px;
-  height: 100px;
+}
+#PostForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+#Content {
+  width: 450px;
+  height: 50px;
+}
+#Button {
+  width: 50px;
+  height: 30px;
+  margin-left: 20px;
 }
