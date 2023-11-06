@@ -6,7 +6,6 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  overflow-y: hidden;
 }
 #LeftBox {
   height: 100vh;
