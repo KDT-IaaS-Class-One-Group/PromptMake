@@ -11,10 +11,12 @@ router.get('/', (req, res) => {
   // HTML 폼 파일을 클라이언트에 전송
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
+
 // POST 요청 처리
 router.post('/saveData', (req, res) => {
+  const inputdataPath = path.join(__dirname, '..', 'data', 'inputdata.json');
   const newData = req.body.data;
-  const inputdataPath = path.join(__dirname,'..', 'data', 'inputdata.json');
 
   fs.readFile(inputdataPath, 'utf-8', (readErr, existingData) => {
     if (readErr) {
@@ -46,7 +48,7 @@ router.post('/saveData', (req, res) => {
 });
 
 router.get('/getData', (req, res) => {
-  const inputdataPath = path.join(__dirname,'..', 'data', 'inputdata.json');
+  const inputdataPath = path.join(__dirname, '..', 'data', 'inputdata.json');
 
   fs.readFile(inputdataPath, 'utf-8', (readErr, jsonData) => {
     if (readErr) {

@@ -37,13 +37,13 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     initializeForm(); // 폼 초기화 함수
-    fetchDataAndUpdate(); // 초기 데이터 가져오기
-
+    
     const form = document.getElementById('PostForm');
-
+    
     form.addEventListener('submit', function (e) {
       e.preventDefault(); // 폼의 기본 동작을 막음
       handleFormSubmit(form);
+      fetchDataAndUpdate(); // 초기 데이터 가져오기
     });
   });
 </script>
