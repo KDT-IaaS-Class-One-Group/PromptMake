@@ -12,13 +12,12 @@ router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-
-// POST 요청 처리
 // POST 요청 처리
 router.post('/saveData', async (req, res) => {
   const newData = req.body.data;
   const inputdataPath = path.join(__dirname, '..', 'data', 'inputdata.json');
 
+async function readFilesaveData() { 
   try {
     // 기존 데이터 불러오기
     const existingData = await fs.promises.readFile(inputdataPath, 'utf-8');
@@ -36,6 +35,8 @@ router.post('/saveData', async (req, res) => {
     console.error('오류 발생:', error);
     res.status(500).send('데이터 저장 중 오류 발생');
   }
+}
+readFilesaveData();
 });
 
 // getData 엔드포인트에서도 async/await를 사용하여 처리
