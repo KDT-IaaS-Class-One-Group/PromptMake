@@ -54,16 +54,7 @@ router.get('/getData', (req, res) => {
       res.status(500).send('파일 읽기 오류 발생');
     } else {
       const data = JSON.parse(jsonData);
-    }
-  });
-
-  fs.writeFile(inputdataPath, JSON.stringify(inputDataArray, null, 2), 'utf-8', (writeErr) => {
-    if (writeErr) {
-      console.error('파일 쓰기 오류:', writeErr);
-      res.status(500).send('파일 쓰기 오류 발생');
-    } else {
-      console.log('데이터가 성공적으로 파일에 추가되었습니다.');
-      res.json({ message: '데이터가 성공적으로 저장되었습니다.' });
+      res.json(data)
     }
   });
 });
