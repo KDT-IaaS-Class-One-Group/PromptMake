@@ -14,51 +14,42 @@ router.get('/', (req, res) => {
 
 
 // POST 요청 처리
-router.post('/saveData', (req, res) => {
-  const inputdataPath = path.join(__dirname, '..', 'data', 'inputdata.json');
+// POST 요청 처리
+router.post('/saveData', async (req, res) => {
   const newData = req.body.data;
+  const inputdataPath = path.join(__dirname, '..', 'data', 'inputdata.json');
 
-  fs.readFile(inputdataPath, 'utf-8', (readErr, existingData) => {
-    if (readErr) {
-      console.error('파일 읽기 오류:', readErr);
-      res.status(500).send('파일 읽기 오류 발생');
-    } else {
-      let inputDataArray = [];
-      try {
-        inputDataArray = JSON.parse(existingData);
-      } catch (parseErr) {
-        console.error('JSON 파싱 오류:', parseErr);
-        res.status(500).send('JSON 파싱 오류 발생');
-        return;
-      }
+  try {
+    // 기존 데이터 불러오기
+    const existingData = await fs.promises.readFile(inputdataPath, 'utf-8');
+    let inputDataArray = JSON.parse(existingData);
 
-      inputDataArray.push(newData);
+    // 새 데이터를 기존 데이터에 추가
+    inputDataArray.push(newData);
 
-      fs.writeFile(inputdataPath, JSON.stringify(inputDataArray, null, 2), 'utf-8', (writeErr) => {
-        if (writeErr) {
-          console.error('파일 쓰기 오류:', writeErr);
-          res.status(500).send('파일 쓰기 오류 발생');
-        } else {
-          console.log('데이터가 성공적으로 파일에 추가되었습니다.');
-          res.json({ message: '데이터가 성공적으로 저장되었습니다.' });
-        }
-      });
-    }
-  });
+    // 데이터를 JSON 파일로 저장
+    await fs.promises.writeFile(inputdataPath, JSON.stringify(inputDataArray, null, 2), 'utf-8');
+    
+    console.log('데이터가 성공적으로 파일에 추가되었습니다.');
+    res.json({ message: '데이터가 성공적으로 저장되었습니다.' });
+  } catch (error) {
+    console.error('오류 발생:', error);
+    res.status(500).send('데이터 저장 중 오류 발생');
+  }
 });
 
-router.get('/getData', (req, res) => {
-  const inputdataPath = path.join(__dirname, '..', 'data', 'inputdata.json');
+// getData 엔드포인트에서도 async/await를 사용하여 처리
+router.get('/getData', async (req, res) => {
+  const inputdataPath = path.join(__dirname, '..','data', 'inputdata.json');
 
-  fs.readFile(inputdataPath, 'utf-8', (readErr, jsonData) => {
-    if (readErr) {
-      console.error('파일 읽기 오류:', readErr);
-      res.send('파일 읽기 오류 발생');
-    } else {
-      const data = JSON.parse(jsonData);
-      res.json(data)
-    }
-  });
+  try {
+    const jsonData = await fs.promises.readFile(inputdataPath, 'utf-8');
+    const data = JSON.parse(jsonData);
+    res.json(data);
+  } catch (error) {
+    console.error('오류 발생:', error);
+    res.status(500).send('데이터 가져오기 중 오류 발생');
+  }
 });
 
 module.exports = router;
