@@ -54,6 +54,7 @@
         .catch(error => {
           console.error('오류 발생:', error);
         });
+        fetchDataAndUpdate();
     });
     
   });
@@ -71,7 +72,6 @@ function fetchDataAndUpdate() {
 }
 
 // 일정한 간격으로 데이터 가져오기
-setInterval(fetchDataAndUpdate, 1); // 5초마다 데이터 업데이트
 
       
 </script>
