@@ -10,11 +10,22 @@
 
 <body>
   <div id="root">
+    <div class="hamburger">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+  </div>
+  <nav class="menu">
+      <ul>
+          <li><a href="#">메뉴 항목 1</a></li>
+          <li><a href="#">메뉴 항목 2</a></li>
+          <li><a href="#">메뉴 항목 3</a></li>
+      </ul>
+  </nav>
     <div id="LeftBox">
       <div id="LeftBox_Top">
       </div>
       <div id="LeftBox_Bottom">
-        <div id="CategoryBox"></div>
         <div id="PromptBox">
           <form id="PostForm">
             <input type="text" id="data" name="data" placeholder="Send a Message">
@@ -33,6 +44,8 @@
 <script type="module">
   // 모듈을 불러오는 스크립트 태그에서 'type="module"'을 지정
   import { initializeForm, handleFormSubmit, fetchDataAndUpdate } from './form.js';
+  import { hamburgerclicker } from './hamburger.js'
+  
 
   document.addEventListener('DOMContentLoaded', function () {
     initializeForm(); // 폼 초기화 함수
