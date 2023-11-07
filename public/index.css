@@ -9,10 +9,10 @@
   height: 100vh;
   display: flex;
 }
-/* #Hamburger {
+#Hamburger {
   width: 20vw;
   height: 100vh;
-} */
+}
 #LeftBox {
   width: 50vw;
   height: 100vh;
@@ -68,8 +68,6 @@
 .hamburger {
   display: block;
   width: 30px;
-  height: 10px;
-  background-color: #333;
   cursor: pointer;
   margin: 20px;
 }
