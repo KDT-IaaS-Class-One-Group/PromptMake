@@ -68,14 +68,16 @@
 .hamburger {
   display: block;
   width: 30px;
-  height: 3px;
+  height: 10px;
   background-color: #333;
   cursor: pointer;
   margin: 20px;
 }
 
 .bar {
-  margin: 6px 0;
+  background-color: #333;
+  height: 3px;
+  margin: 5px 0; /* 각 .bar 요소 사이에 간격을 주려면 여기서 조절합니다. */
 }
 
 .menu {
@@ -103,4 +105,7 @@ li {
 a {
   text-decoration: none;
   color: #fff;
+}
+.menu.show-menu {
+  left: 0;
 }

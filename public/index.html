@@ -10,18 +10,20 @@
 
 <body>
   <div id="root">
-    <div class="hamburger">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-  </div>
-  <nav class="menu">
-      <ul>
+    <div id='hamburger'>
+      <div class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <nav class="menu">
+        <ul>
           <li><a href="#">메뉴 항목 1</a></li>
           <li><a href="#">메뉴 항목 2</a></li>
           <li><a href="#">메뉴 항목 3</a></li>
-      </ul>
-  </nav>
+        </ul>
+      </nav>
+    </div>
     <div id="LeftBox">
       <div id="LeftBox_Top">
       </div>
@@ -44,18 +46,25 @@
 <script type="module">
   // 모듈을 불러오는 스크립트 태그에서 'type="module"'을 지정
   import { initializeForm, handleFormSubmit, fetchDataAndUpdate } from './form.js';
-  import { hamburgerclicker } from './hamburger.js'
-  
+
 
   document.addEventListener('DOMContentLoaded', function () {
     initializeForm(); // 폼 초기화 함수
-    
+
     const form = document.getElementById('PostForm');
-    
+
     form.addEventListener('submit', function (e) {
       e.preventDefault(); // 폼의 기본 동작을 막음
       handleFormSubmit(form);
     });
   });
+
+  const hamburger = document.querySelector(".hamburger");
+  const menu = document.querySelector(".menu");
+
+  hamburger.addEventListener("click", function () {
+    menu.classList.toggle("show-menu");
+  });
 </script>
+
 </html>
