@@ -51,7 +51,7 @@ router.get('/getData', (req, res) => {
   fs.readFile(inputdataPath, 'utf-8', (readErr, jsonData) => {
     if (readErr) {
       console.error('파일 읽기 오류:', readErr);
-      res.status(500).send('파일 읽기 오류 발생');
+      res.send('파일 읽기 오류 발생');
     } else {
       const data = JSON.parse(jsonData);
       res.json(data)

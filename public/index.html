@@ -64,7 +64,7 @@ function fetchDataAndUpdate() {
     .then(response => response.json())
     .then(data => {
       const targetElement = document.getElementById('Rightbox_Text');
-      targetElement.innerHTML = data.join('<br>'); // 데이터 배열을 HTML로 변환
+      targetElement.innerHTML = data; // 데이터 배열을 HTML로 변환
     })
     .catch(error => {
       console.error('데이터 가져오기 오류:', error);
