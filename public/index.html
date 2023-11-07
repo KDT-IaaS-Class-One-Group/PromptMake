@@ -17,7 +17,7 @@
         <div id="CategoryBox"></div>
         <div id="PromptBox">
           <form id="PostForm">
-            <input type = "text" id="data" name="data" placeholder="Send a Message">
+            <input type="text" id="data" name="data" placeholder="Send a Message">
             <input type="submit" id="Button"></input>
           </form>
         </div>
@@ -29,10 +29,48 @@
   </div>
 </body>
 <script>
-  // let form = document.getElementById('PostForm');
-  // let data = document.getElementById('data');
-  // form.addEventListener('submit', function (event) {
-  // event.preventDefault(); 
-  // })
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('PostForm');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // 폼의 기본 동작을 막음
+
+      const formData = new FormData(form);
+
+      // FormData에서 입력 데이터를 추출
+      const data = formData.get('data');
+      // 서버로 데이터를 전송하고 JSON 파일에 저장
+      fetch('/saveData', {
+        method: 'POST',
+        body: JSON.stringify({ data }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(result => {
+          console.log('데이터가 성공적으로 저장되었습니다.', result);
+        })
+        .catch(error => {
+          console.error('오류 발생:', error);
+        });
+    });
+
+    fetch('/getData') // JSON 데이터를 가져오는 엔드포인트 설정
+      .then(response => response.json())
+      .then(data => {
+        // JSON 데이터를 가져왔을 때 실행할 코드
+        // data에는 JSON 데이터가 들어 있음
+        // HTML을 업데이트하여 데이터를 표시
+        const targetElement = document.getElementById('Rightbox_Text');
+        targetElement.innerHTML = data;
+      })
+      .catch(error => {
+        // 오류 처리
+        console.error('데이터 가져오기 오류:', error);
+      });
+
+  });
 </script>
+
 </html>
