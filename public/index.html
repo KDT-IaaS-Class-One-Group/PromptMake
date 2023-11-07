@@ -24,56 +24,27 @@
       </div>
     </div>
     <div id="RightBox">
+      <h1>질문 사항</h1>
+      <br>
       <div id="Rightbox_Text"></div>
     </div>
   </div>
 </body>
-<script>
+<script type="module">
+  // 모듈을 불러오는 스크립트 태그에서 'type="module"'을 지정
+  import { initializeForm, handleFormSubmit } from './form.js';
+  import { fetchDataAndUpdate } from './dataFetching.js';
+
   document.addEventListener('DOMContentLoaded', function () {
+    initializeForm(); // 폼 초기화 함수
+    fetchDataAndUpdate(); // 초기 데이터 가져오기
+
     const form = document.getElementById('PostForm');
 
     form.addEventListener('submit', function (e) {
       e.preventDefault(); // 폼의 기본 동작을 막음
-
-      const formData = new FormData(form);
-
-      // FormData에서 입력 데이터를 추출
-      const data = formData.get('data');
-      // 서버로 데이터를 전송하고 JSON 파일에 저장
-      fetch('/saveData', {
-        method: 'POST',
-        body: JSON.stringify({ data }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        .then(response => response.json())
-        .then(result => {
-          console.log('데이터가 성공적으로 저장되었습니다.', result);
-        })
-        .catch(error => {
-          console.error('오류 발생:', error);
-        });
-        fetchDataAndUpdate();
+      handleFormSubmit(form);
     });
-    
   });
-// 주기적으로 데이터 가져오기
-function fetchDataAndUpdate() {
-  fetch('/getData') // JSON 데이터를 가져오는 엔드포인트 설정
-    .then(response => response.json())
-    .then(data => {
-      const targetElement = document.getElementById('Rightbox_Text');
-      targetElement.innerHTML = data; // 데이터 배열을 HTML로 변환
-    })
-    .catch(error => {
-      console.error('데이터 가져오기 오류:', error);
-    });
-}
-
-// 일정한 간격으로 데이터 가져오기
-
-      
 </script>
-
 </html>
