@@ -17,11 +17,8 @@
         <div class="bar"></div>
       </div>
       <nav class="menu">
-        <ul>
+        <ul id = "hamburgerproperty">
           <br>
-          <li><a href="#">메뉴 항목 1</a></li>
-          <li><a href="#">메뉴 항목 2</a></li>
-          <li><a href="#">메뉴 항목 3</a></li>
         </ul>
       </nav>
     </div>
@@ -66,6 +63,32 @@
   hamburger.addEventListener("click", function () {
     menu.classList.toggle("show-menu");
   });
+
+
+  // 요소를 가져와서 html에 데이터 삽입
+  import { loadJsonData } from './jsonLoader.js';
+
+  document.addEventListener('DOMContentLoaded', async function () {
+    const jsonFilePath = './data/primary.json';
+
+    // JSON 파일을 로드하고 데이터를 처리합니다.
+    const jsonData = await loadJsonData(jsonFilePath);
+
+    if (jsonData) {
+      const dataContainer = document.getElementById('hamburgerproperty');
+
+      const headerData = jsonData.header;
+      const hamburgerMenu = headerData.hamburgerMenu;
+      dataContainer.innerHTML = `
+          <li>${hamburgerMenu[0]}</li>
+          <li>${hamburgerMenu[1]}</li>
+          <li>${hamburgerMenu[2]}</li>
+          <li>${hamburgerMenu[3]}</li>
+        `;
+    }
+  });
+
+
 </script>
 
 </html>

@@ -53,4 +53,13 @@ router.get('/getData', async (req, res) => {
   }
 });
 
+router.get('/propertyData', (req, res) => {
+  const inputdataPath = path.join(__dirname, '..','data', 'inputdata.json');
+
+  const propertyData = fs.promises.readFile(inputdataPath, 'utf-8');
+  const prodata = JSON.parse(propertyData);
+  res.json(prodata);
+  
+})
+
 module.exports = router;
