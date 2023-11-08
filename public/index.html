@@ -17,7 +17,7 @@
         <div class="bar"></div>
       </div>
       <nav class="menu">
-        <ul id = "hamburgerproperty">
+        <ul id="hamburgerproperty">
           <br>
         </ul>
       </nav>
@@ -65,18 +65,41 @@
   });
 
 
-  // 요소를 가져와서 html에 데이터 삽입
-  import { loadJsonData } from './jsonLoader.js';
+  // // 요소를 가져와서 html에 데이터 삽입
+  // import { loadJsonData } from './jsonLoader.js';
 
-  document.addEventListener('DOMContentLoaded', async function () {
-    const jsonFilePath = './data/primary.json';
+  // document.addEventListener('DOMContentLoaded', async function () {
+  //   const jsonFilePath = './data/primary.json';
 
-    // JSON 파일을 로드하고 데이터를 처리합니다.
-    const jsonData = await loadJsonData(jsonFilePath);
+  //   // JSON 파일을 로드하고 데이터를 처리합니다.
+  //   const jsonData = await loadJsonData(jsonFilePath);
+  //   console.log(jsonData)
+  //   if (jsonData) {
+  //     const dataContainer = document.getElementById('hamburgerproperty');
 
-    if (jsonData) {
-      const dataContainer = document.getElementById('hamburgerproperty');
+  //     const headerData = jsonData.header;
+  //     const hamburgerMenu = headerData.hamburgerMenu;
+  //     dataContainer.innerHTML = `
+  //         <li>${hamburgerMenu[0]}</li>
+  //         <li>${hamburgerMenu[1]}</li>
+  //         <li>${hamburgerMenu[2]}</li>
+  //         <li>${hamburgerMenu[3]}</li>
+  //       `;
+  //   }
+  // });
 
+  // JSON 파일 경로
+  const jsonFilePath = 'http://localhost:3002/primary.json';
+
+  // HTML 요소를 선택합니다.
+  const dataContainer = document.getElementById('hamburgerproperty');
+
+  // JSON 파일을 로드하고 데이터를 처리합니다.
+  fetch(jsonFilePath)
+    .then(response => response.json())
+    .then(jsonData => {
+      // JSON 데이터에서 프로퍼티 값을 추출하여 HTML에 넣습니다.
+      // console.log(jsonData)
       const headerData = jsonData.header;
       const hamburgerMenu = headerData.hamburgerMenu;
       dataContainer.innerHTML = `
@@ -85,10 +108,10 @@
           <li>${hamburgerMenu[2]}</li>
           <li>${hamburgerMenu[3]}</li>
         `;
-    }
-  });
-
-
+    })
+    .catch(error => {
+      console.error('Error loading JSON file:', error);
+    });
 </script>
 
 </html>
