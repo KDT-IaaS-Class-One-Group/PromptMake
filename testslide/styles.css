@@ -9,17 +9,20 @@ body {
   align-items: center;
 }
 
-.hamburger-menu {
+#hamburgermenu {
   cursor: pointer;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   padding: 10px;
+  width: 50px;
+  height: 40px;
 }
 
 .menu-bar {
   width: 30px;
-  height: 3px;
+  height: 5px;
   background-color: #333;
-  margin: 5px 0;
+  margin: 2px 0;
 }
 
 .slide-menu {
