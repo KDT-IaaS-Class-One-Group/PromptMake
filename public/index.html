@@ -106,12 +106,34 @@
     .catch(error => {
       console.error('Error loading JSON file:', error);
     });
-    // 
+  // 
 
-    import { bgchangemode } from './changebg.js';
+  // import { daymodechanger, darkmodechanger } from './changebg.js';
 
-    bgchangemode("darkmode", "gray", "black");
-    bgchangemode("daymode", "white","orange" );
+  // 데이모드, 다크모드 설정
+  const darkmode = document.getElementById('darkmode');
+  const daymode = document.getElementById('daymode');
+  const RightBox = document.getElementById('RightBox');
+
+  const root = document.getElementById("root");
+  const hamburgerproperty = document.getElementById('hamburgerproperty');
+  const userInfo = document.getElementById('userInfo')
+
+  // 다크모드 모듈작성
+  darkmode.addEventListener('click', function () {
+    root.style.backgroundColor = "black";
+    RightBox.style.color = "white";
+    hamburgerproperty.style.color = "white";
+    userInfo.style.color = "white";
+  });
+  // 데이모드 모듈 작성
+  daymode.addEventListener('click', function () {
+    root.style.backgroundColor = "gray";
+    RightBox.style.color = "black";
+    hamburgerproperty.style.color = "black";
+    userInfo.style.color = "black";
+  });
+  // darkmodechanger("gray", "black");
+  // daymodechanger("black", "orange");
 </script>
-
 </html>
