@@ -95,7 +95,11 @@
           <li>${hamburgerMenu[2]}</li>
           <li>${hamburgerMenu[3]}</li>
         `;
-      
+      userInfo.innerHTML = `
+          <li>${userInfo.name}</li>
+          <li>${userInfo.status}</li>
+          <li>${userInfo.avatar}</li>
+      `
     })
     .catch(error => {
       console.error('Error loading JSON file:', error);
