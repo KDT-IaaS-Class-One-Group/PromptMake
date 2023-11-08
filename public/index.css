@@ -70,10 +70,12 @@
 /* 햄버거 메뉴 */
 
 .hamburger {
+  position: relative;
   display: block;
   width: 30px;
   cursor: pointer;
   margin: 20px;
+  z-index: 2;
 }
 
 .bar {
@@ -93,6 +95,19 @@
   overflow-y: auto;
   padding: 20px;
   transition: 0.5s;
+}
+.show-menu {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 250px;
+  width: 20vw;
+  height: 100%;
+  background-color: #fff;
+  overflow-y: auto;
+  padding: 20px;
+  transition: 0.5s;
+  z-index: 1;
 }
 
 ul {
