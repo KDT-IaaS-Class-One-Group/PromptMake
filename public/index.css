@@ -113,7 +113,7 @@ ul {
   padding: 0;
 }
 
-li {
+#hamburgerproperty li {
   margin-top: 50px;
   color: black;
   font-size: 20px;
@@ -126,4 +126,14 @@ a {
 }
 .menu.show-menu {
   left: 0;
+}
+#userInfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 550px;
+}
+#userInfo li {
+  color: black;
+  font-size: 30px;
 }

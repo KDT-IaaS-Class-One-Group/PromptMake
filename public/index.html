@@ -31,7 +31,7 @@
         <div id="PromptBox">
           <form id="PostForm">
             <input type="text" id="data" name="data" placeholder="Send a Message">
-            <input type="submit" id="Button"></input>
+            <input type="submit" id="Button" value="click!"></input>
           </form>
         </div>
       </div>
@@ -66,14 +66,10 @@
   hamburger.addEventListener("click", function () {
     menu.classList.toggle("show-menu");
   });
-
-
   // JSON 파일 경로
-  const jsonFilePath = 'http://localhost:3002/primary.json';
-
-  // HTML 요소를 선택합니다.
+  const jsonFilePath = 'http://localhost:3322/primary.json';
   const dataContainer = document.getElementById('hamburgerproperty');
-  const userInfo = document.getElementById('userInfo');
+  const userInfoContainer = document.getElementById('userInfo');
 
   // JSON 파일을 로드하고 데이터를 처리합니다.
   fetch(jsonFilePath)
@@ -88,14 +84,16 @@
       // 차상위 데이터 경로 설정
       const userInfo = mainContent.userInfo
       const hamburgerMenu = headerData.hamburgerMenu;
-      // 햄버거메뉴 내에 타이틀 입력
+      // 슬라이드 안에 메뉴 입력
       dataContainer.innerHTML = `
           <li>${hamburgerMenu[0]}</li>
           <li>${hamburgerMenu[1]}</li>
           <li>${hamburgerMenu[2]}</li>
           <li>${hamburgerMenu[3]}</li>
         `;
-      userInfo.innerHTML = `
+        console.log(userInfo)
+        // 슬라이드 안에 유저정보 입력
+      userInfoContainer.innerHTML = `
           <li>${userInfo.name}</li>
           <li>${userInfo.status}</li>
           <li>${userInfo.avatar}</li>

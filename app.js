@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3002;
+const port = 3322;
 
 const routes = require('./server/routes'); // 라우터 모듈 불러오기
 
