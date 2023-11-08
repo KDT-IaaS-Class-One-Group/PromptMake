@@ -26,6 +26,10 @@
     </div>
     <div id="LeftBox">
       <div id="LeftBox_Top">
+        <div id="changebg">
+          <input id="darkmode" type="button" value="dark">
+          <input id="daymode" type="button" value="day">
+        </div>
       </div>
       <div id="LeftBox_Bottom">
         <div id="PromptBox">
@@ -91,8 +95,8 @@
           <li>${hamburgerMenu[2]}</li>
           <li>${hamburgerMenu[3]}</li>
         `;
-        console.log(userInfo)
-        // 슬라이드 안에 유저정보 입력
+      console.log(userInfo)
+      // 슬라이드 안에 유저정보 입력
       userInfoContainer.innerHTML = `
           <li>${userInfo.name}</li>
           <li>${userInfo.status}</li>
@@ -102,6 +106,12 @@
     .catch(error => {
       console.error('Error loading JSON file:', error);
     });
+    // 
+
+    import { bgchangemode } from './changebg.js';
+
+    bgchangemode("darkmode", "gray", "black");
+    bgchangemode("daymode", "white","orange" );
 </script>
 
 </html>
