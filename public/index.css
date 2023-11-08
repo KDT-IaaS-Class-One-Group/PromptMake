@@ -85,11 +85,10 @@
 }
 
 .menu {
-  display: none;
   position: fixed;
   top: 0;
   left: -250px;
-  width: 250px;
+  width: 0px;
   height: 100%;
   background-color: #333;
   overflow-y: auto;
@@ -97,7 +96,6 @@
   transition: 0.5s;
 }
 .show-menu {
-  display: block;
   position: fixed;
   top: 0;
   left: 250px;
