@@ -51,7 +51,12 @@
   width: 800px;
 }
 /* LeftBox_Bottom 하단 prompt작성 부분 */
-
+#categorybox {
+  width: 700px;
+  background-color: aliceblue;
+  height: 50px;
+  margin-right: 100px;
+}
 #PostForm {
   display: flex;
   justify-content: center;
