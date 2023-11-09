@@ -61,7 +61,7 @@ export function fetchDataAndUpdate() {
 
 export const promptanswerdata = function () {
   const jsonFilePath = 'http://localhost:3322/primary.json';
-  const LeftBoxTop = document.getElementById('LeftBox_Top');
+  const mainanswer = document.getElementById('mainanswer');
 
   fetch(jsonFilePath)
   .then(response => response.json())
@@ -77,7 +77,7 @@ export const promptanswerdata = function () {
       const answerbad = outputRecords[0].answerbad
 
       // 슬라이드 안에 메뉴 입력
-      LeftBoxTop.innerHTML = `${answergood}<br>`
+      mainanswer.innerHTML = `${answergood}<br>`
     })
     .catch(error => {
       console.error('Error loading JSON file:', error);
