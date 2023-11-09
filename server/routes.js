@@ -63,13 +63,13 @@ router.get('/propertyData', (req, res) => {
   
 })
 
-router.get('/primaryData', (req, res) => {
-  const inputdataPath = path.join(__dirname, '..','data', 'primary.json');
+// router.get('/primaryData', (req, res) => {
+//   const inputdataPath = path.join(__dirname, '..','data', 'primary.json');
 
-  const primaryData = fs.promises.readFile(inputdataPath, 'utf-8');
-  const pridata = JSON.parse(primaryData);
-  res.json(pridata);
+//   const primaryData = fs.promises.readFile(inputdataPath, 'utf-8');
+//   const pridata = JSON.parse(primaryData);
+//   res.json(pridata);
   
-})
+// })
 
 module.exports = router;

@@ -28,6 +28,8 @@
     <!-- 중앙 섹터 -->
     <div id="LeftBox">
       <div id="LeftBox_Top">
+        <div id = "answerbox">
+        </div>
         <div id="changebg">
           <input id="darkmode" type="button" value="dark">
           <input id="daymode" type="button" value="day">
@@ -60,8 +62,8 @@
 </body>
 <script type="module">
   // 모듈을 불러오는 스크립트 태그에서 'type="module"'을 지정
-  import { handleFormSubmit, fetchDataAndUpdate, mainpromptUpdate } from './form.js';
-  // 모듈 
+  import { handleFormSubmit, fetchDataAndUpdate} from './form.js';
+  import { promptanswerdata } from './testmodule.js';
 
   document.addEventListener('DOMContentLoaded', function () {
     // initializeForm(); // 폼 초기화 함수

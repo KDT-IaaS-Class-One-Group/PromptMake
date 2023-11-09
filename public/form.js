@@ -19,6 +19,8 @@ export function handleFormSubmit(form) {
       // 위와같이 함수를 then에 넣어 사용하는 이유는 저장 후 데이터를 바로 가져오기 위함
       clearInput(form);
       // input안에 value를 빈칸으로 만듬
+
+      promptanswerdata();
     })
     .catch(error => {
       console.error('오류 발생:', error);
@@ -44,15 +46,40 @@ export function fetchDataAndUpdate() {
     });
 }
 // 메인프롬프트에 넣을 답변내용
-export function mainpromptUpdate() {
-  fetch('/primaryData')
-    .then(response => response.json())
-    .then(data => {
-      const leftboxtopContent = document.getElementById('LeftBox_Top');
-      leftboxtopContent.innerHTML = data.join('<br>');
-      // 작성한 데이터를 한줄씩 적용
+// export function mainpromptUpdate() {
+//   fetch('/primaryData')
+//     .then(response => response.json())
+//     .then(data => {
+//       const leftboxtopContent = document.getElementById('LeftBox_Top');
+//       leftboxtopContent.innerHTML = data.join('<br>');
+//       // 작성한 데이터를 한줄씩 적용
+//     })
+//     .catch(error => {
+//       console.error('데이터 가져오기 오류:', error);
+//     });
+// }
+
+export const promptanswerdata = function () {
+  const jsonFilePath = 'http://localhost:3322/primary.json';
+  const LeftBoxTop = document.getElementById('LeftBox_Top');
+
+  fetch(jsonFilePath)
+  .then(response => response.json())
+  .then(jsonData => {
+      // JSON 데이터에서 프로퍼티 값을 추출하여 HTML에 넣습니다.
+      // 상위 데이터 경로 설정
+      const mainContent = jsonData.mainContent;
+
+      // 차상위 데이터 경로 설정
+      const outputRecords = mainContent.outputRecords
+      // 하위 경로 설정
+      const answergood = outputRecords[0].answergood
+      const answerbad = outputRecords[0].answerbad
+
+      // 슬라이드 안에 메뉴 입력
+      LeftBoxTop.innerHTML = `${answergood}<br>`
     })
     .catch(error => {
-      console.error('데이터 가져오기 오류:', error);
+      console.error('Error loading JSON file:', error);
     });
 }
