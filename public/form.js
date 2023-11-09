@@ -51,8 +51,8 @@ export const promptanswerdata = function () {
   const answerbox = document.getElementById('answerbox');
 
   fetch(jsonFilePath)
-  .then(response => response.json())
-  .then(jsonData => {
+    .then(response => response.json())
+    .then(jsonData => {
       // JSON 데이터에서 프로퍼티 값을 추출하여 HTML에 넣습니다.
       // 상위 데이터 경로 설정
       const mainContent = jsonData.mainContent;
@@ -62,7 +62,7 @@ export const promptanswerdata = function () {
       // 하위 경로 설정
       const answergood = outputRecords[0].answergood
       const answerbad = outputRecords[0].answerbad
-      
+      // 긍정답변 부르기
       addNewElement(answergood);
 
     })
@@ -74,7 +74,7 @@ export const promptanswerdata = function () {
 function addNewElement(element) {
   // 새로운 div 요소 생성
   const newDiv = document.createElement('div');
-  
+
   // 요소에 텍스트나 내용 추가
   newDiv.textContent = element
 
