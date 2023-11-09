@@ -16,9 +16,10 @@ router.get('/', (req, res) => {
 router.post('/saveData', async (req, res) => {
   const newData = req.body.data;
   const inputdataPath = path.join(__dirname, '..', 'data', 'inputdata.json');
+
+  // 기존 데이터 불러오는 함수 작성 - 추후 모듈화
   async function readFilesaveData() { 
     try {
-      // 기존 데이터 불러오기
       const existingData = await fs.promises.readFile(inputdataPath, 'utf-8');
       let inputDataArray = JSON.parse(existingData);
   
@@ -44,6 +45,7 @@ router.get('/getData', async (req, res) => {
 
   try {
     const jsonData = await fs.promises.readFile(inputdataPath, 'utf-8');
+    // promises.readFile을 사용하면 예외처리를 try/catch를 사용할 수 있음
     const data = JSON.parse(jsonData);
     res.json(data);
   } catch (error) {
