@@ -34,12 +34,12 @@
         </div>
       </div>
       <div id="LeftBox_Bottom">
-        <div id = "categorybox">
-          <li>IT</li>
-          <li>문화</li>
-          <li>역사</li>
-          <li>사회</li>
-          <li>경제</li>
+        <div id="categorybox">
+          <li class="category">IT</li>
+          <li class="category">문화</li>
+          <li class="category">역사</li>
+          <li class="category">사회</li>
+          <li class="category">경제</li>
         </div>
         <div id="PromptBox">
           <form id="PostForm">
@@ -60,8 +60,8 @@
 </body>
 <script type="module">
   // 모듈을 불러오는 스크립트 태그에서 'type="module"'을 지정
-  import {handleFormSubmit, fetchDataAndUpdate } from './form.js';
-// 모듈 
+  import { handleFormSubmit, fetchDataAndUpdate } from './form.js';
+  // 모듈 
 
   document.addEventListener('DOMContentLoaded', function () {
     // initializeForm(); // 폼 초기화 함수
@@ -73,7 +73,7 @@
       handleFormSubmit(form);
     });
   });
-// 햄버거 메뉴를 적용하기 위한 작용
+  // 햄버거 메뉴를 적용하기 위한 작용
   const hamburger = document.querySelector(".hamburger");
   const menu = document.querySelector(".menu");
 
@@ -151,8 +151,20 @@
       bar.style.backgroundColor = 'black'; // bar가 3개 이기때문에 forEach를 통하여 3개를 다 적용
     });
   });
-  // darkmodechanger("gray", "black");
-  // daymodechanger("black", "orange");
+  // 카테고리 이벤트 작성
+  const categorybox = document.getElementById('categorybox');
+
+  categorybox.addEventListener('click', function (event) {
+    if (event.target !== categorybox) {
+      if(event.target.style.backgroundColor ==='red') {
+        event.target.style.backgroundColor = "white";
+      } else {
+        event.target.style.backgroundColor = 'red';
+      }
+    }
+  })
+
+
 </script>
 
 </html>
