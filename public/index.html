@@ -11,6 +11,7 @@
 <body>
   <div id="root">
     <div id='Hamburger'>
+      <!-- 왼쪽 전체를 의미 -->
       <div class="hamburger">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -24,6 +25,7 @@
         </ul>
       </nav>
     </div>
+    <!-- 중앙 섹터 -->
     <div id="LeftBox">
       <div id="LeftBox_Top">
         <div id="changebg">
@@ -40,6 +42,7 @@
         </div>
       </div>
     </div>
+    <!-- 오른쪽 섹터 -->
     <div id="RightBox">
       <br>
       <h1>질문사항</h1>
@@ -50,11 +53,11 @@
 </body>
 <script type="module">
   // 모듈을 불러오는 스크립트 태그에서 'type="module"'을 지정
-  import { initializeForm, handleFormSubmit, fetchDataAndUpdate } from './form.js';
-
+  import {handleFormSubmit, fetchDataAndUpdate } from './form.js';
+// 모듈 
 
   document.addEventListener('DOMContentLoaded', function () {
-    initializeForm(); // 폼 초기화 함수
+    // initializeForm(); // 폼 초기화 함수
 
     const form = document.getElementById('PostForm');
 
@@ -63,7 +66,7 @@
       handleFormSubmit(form);
     });
   });
-
+// 햄버거 메뉴를 적용하기 위한 작용
   const hamburger = document.querySelector(".hamburger");
   const menu = document.querySelector(".menu");
 
@@ -95,7 +98,7 @@
           <li>${hamburgerMenu[2]}</li>
           <li>${hamburgerMenu[3]}</li>
         `;
-      console.log(userInfo)
+      // console.log(userInfo)
       // 슬라이드 안에 유저정보 입력
       userInfoContainer.innerHTML = `
           <li>${userInfo.name}</li>
@@ -114,7 +117,6 @@
   const darkmode = document.getElementById('darkmode');
   const daymode = document.getElementById('daymode');
   const RightBox = document.getElementById('RightBox');
-
   const root = document.getElementById("root");
   const hamburgerproperty = document.getElementById('hamburgerproperty');
   const userInfo = document.getElementById('userInfo')
@@ -128,7 +130,7 @@
     userInfo.style.color = "white";
     LeftBox_Top.style.backgroundColor = "white";
     bars.forEach(bar => {
-      bar.style.backgroundColor = 'red'; // 원하는 색상으로 변경합니다.
+      bar.style.backgroundColor = 'red'; // bar가 3개 이기때문에 forEach를 통하여 3개를 다 적용
     });
   });
   // 데이모드 모듈 작성
@@ -139,7 +141,7 @@
     userInfo.style.color = "black";
     LeftBox_Top.style.backgroundColor = "beige"
     bars.forEach(bar => {
-      bar.style.backgroundColor = 'black'; // 원하는 색상으로 변경합니다.
+      bar.style.backgroundColor = 'black'; // bar가 3개 이기때문에 forEach를 통하여 3개를 다 적용
     });
   });
   // darkmodechanger("gray", "black");
