@@ -45,23 +45,10 @@ export function fetchDataAndUpdate() {
       console.error('데이터 가져오기 오류:', error);
     });
 }
-// 메인프롬프트에 넣을 답변내용
-// export function mainpromptUpdate() {
-//   fetch('/primaryData')
-//     .then(response => response.json())
-//     .then(data => {
-//       const leftboxtopContent = document.getElementById('LeftBox_Top');
-//       leftboxtopContent.innerHTML = data.join('<br>');
-//       // 작성한 데이터를 한줄씩 적용
-//     })
-//     .catch(error => {
-//       console.error('데이터 가져오기 오류:', error);
-//     });
-// }
 
 export const promptanswerdata = function () {
   const jsonFilePath = 'http://localhost:3322/primary.json';
-  const mainanswer = document.getElementById('mainanswer');
+  const answerbox = document.getElementById('answerbox');
 
   fetch(jsonFilePath)
   .then(response => response.json())
@@ -75,11 +62,22 @@ export const promptanswerdata = function () {
       // 하위 경로 설정
       const answergood = outputRecords[0].answergood
       const answerbad = outputRecords[0].answerbad
+      
+      addNewElement(answergood);
 
-      // 슬라이드 안에 메뉴 입력
-      mainanswer.innerHTML = `${answergood}<br>`
     })
     .catch(error => {
       console.error('Error loading JSON file:', error);
     });
+}
+
+function addNewElement(element) {
+  // 새로운 div 요소 생성
+  const newDiv = document.createElement('div');
+  
+  // 요소에 텍스트나 내용 추가
+  newDiv.textContent = element
+
+  // 생성한 요소를 컨테이너에 추가
+  answerbox.appendChild(newDiv);
 }
