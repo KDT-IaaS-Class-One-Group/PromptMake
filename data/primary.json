@@ -5,10 +5,12 @@
     "promptInputPlaceholder": "Enter your message here..."
   },
   "mainContent": {
-    "inputRecords": [
+    "outputRecords": [
       {
         "type": "user",
         "message": "How does OpenAI work?",
+        "answergood" : "i can help you!",
+        "answerbad" : "i don't tell you anything, sorry!",
         "timestamp": "10:23 AM"
       },
       {
