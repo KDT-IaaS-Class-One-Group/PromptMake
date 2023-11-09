@@ -33,7 +33,6 @@
 #LeftBox_Top {
   height: 80vh;
   background-color: beige;
-
 }
 
 #LeftBox_Bottom {
@@ -53,7 +52,7 @@
 /* LeftBox_Bottom 하단 prompt작성 부분 */
 #categorybox {
   width: 700px;
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   height: 50px;
   margin-right: 100px;
   display: flex;
@@ -62,13 +61,15 @@
 #categorybox li {
   width: 100px;
   height: 50px;
-  background-color: ivory;
+  background-color: white;
   list-style: none;
   font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-style: italic;
+  border-radius: 20px;
+  color: brown
 }
 #PostForm {
   display: flex;
@@ -172,7 +173,8 @@ ul {
   justify-content: end
 }
 #darkmode,
-#daymode
+#daymode,
+#custommode
 {
   width: 50px;
   height: 50px;

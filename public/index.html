@@ -131,7 +131,8 @@
   const userInfo = document.getElementById('userInfo')
   const LeftBox_Top = document.getElementById('LeftBox_Top')
   const bars = document.querySelectorAll('.bar')
-  // 다크모드 모듈작성
+
+  // 다크모드 이벤트작성
   darkmode.addEventListener('click', function () {
     root.style.backgroundColor = "black";
     RightBox.style.color = "white";
@@ -142,7 +143,7 @@
       bar.style.backgroundColor = 'red'; // bar가 3개 이기때문에 forEach를 통하여 3개를 다 적용
     });
   });
-  // 데이모드 모듈 작성
+  // 데이모드 이벤트 작성
   daymode.addEventListener('click', function () {
     root.style.backgroundColor = "gray";
     RightBox.style.color = "black";
