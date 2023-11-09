@@ -1,4 +1,4 @@
-const readFilesaveData = require("./mod/reaFilesaveData.js")
+import { readFilesaveData } from '../mod/readFilesaveData';
 
 const express = require('express');
 const router = express.Router();

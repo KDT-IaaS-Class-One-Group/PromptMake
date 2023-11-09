@@ -1,4 +1,4 @@
-async function readFilesaveData() { 
+export async function readFilesaveData() { 
   try {
     // 기존 데이터 불러오기
     const existingData = await fs.promises.readFile(inputdataPath, 'utf-8');
@@ -18,4 +18,3 @@ async function readFilesaveData() {
   }
 }
 
-module.exports = { readFilesaveData }
