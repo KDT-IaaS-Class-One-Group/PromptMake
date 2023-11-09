@@ -24,12 +24,13 @@
 }
 
 #LeftBox_Top {
-  height: 70vh;
+  height: 80vh;
+  background-color: azure;
 
 }
 
 #LeftBox_Bottom {
-  height: 30vh;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: end;

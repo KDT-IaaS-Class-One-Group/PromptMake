@@ -118,13 +118,18 @@
   const root = document.getElementById("root");
   const hamburgerproperty = document.getElementById('hamburgerproperty');
   const userInfo = document.getElementById('userInfo')
-
+  const LeftBox_Top = document.getElementById('LeftBox_Top')
+  const bars = document.querySelectorAll('.bar')
   // 다크모드 모듈작성
   darkmode.addEventListener('click', function () {
     root.style.backgroundColor = "black";
     RightBox.style.color = "white";
     hamburgerproperty.style.color = "white";
     userInfo.style.color = "white";
+    LeftBox_Top.style.backgroundColor = "white";
+    bars.forEach(bar => {
+      bar.style.backgroundColor = 'red'; // 원하는 색상으로 변경합니다.
+    });
   });
   // 데이모드 모듈 작성
   daymode.addEventListener('click', function () {
@@ -132,8 +137,13 @@
     RightBox.style.color = "black";
     hamburgerproperty.style.color = "black";
     userInfo.style.color = "black";
+    LeftBox_Top.style.backgroundColor = "beige"
+    bars.forEach(bar => {
+      bar.style.backgroundColor = 'black'; // 원하는 색상으로 변경합니다.
+    });
   });
   // darkmodechanger("gray", "black");
   // daymodechanger("black", "orange");
 </script>
+
 </html>
